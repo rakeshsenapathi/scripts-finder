@@ -15,49 +15,190 @@ class App extends Component {
     this.state = {
       favourites: [],
       labels: [],
-      selectedScriptId: 0,
+      checkedLabels: {},
+      addedToFavourite: {},
+      showFavouriteIsChecked: false,
+      selectedScriptId: '',
       keyword: "",
+      color: "white",
       data: [],
       filteredData: []
     };
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleSelectedScriptIdChange = this.handleSelectedScriptIdChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleAddToFavourite = this.handleAddToFavourite.bind(this);
+    this.handleApplyChanges = this.handleApplyChanges.bind(this);
 
   }
 
   componentDidMount() {
 
     // On mount, setting the data and filteredData state  
-    api.get_scripts((data) => {
-      this.setState({ data, filteredData: data });
+    api.get_scripts((_data) => {
+      this.setState({ data: _data });
+      this.setState({ filteredData: _data });
       this.setState({ selectedScriptId: this.state.data[0].id });
     });
+
+    api.get_labels((_labels) => {
+      this.setState({ labels: _labels });
+      let checkedLabels = {};
+      this.state.labels.map((label) => checkedLabels[label] = false);
+      this.setState({ checkedLabels });
+    })
 
   }
 
   handleSearchChange(event) {
 
-    this.setState({ keyword: event.target.value });
     let data = this.state.data;
-    let keyword = this.state.keyword;
+    let keyword = event.target.value;
     let updatedData = data.filter(script => script.name.includes(keyword));
     this.setState({ filteredData: updatedData });
+    this.setState({ keyword: event.target.value });
 
   }
 
+  handleSelectedScriptIdChange(scriptId) {
+
+    this.setState({ selectedScriptId: scriptId });
+    let color = this.state.addedToFavourite[scriptId] === true ? "yellow" : "white";
+
+    this.setState({ color });
+
+  }
+
+  handleAddToFavourite(script_id) {
+
+    const addedToFavourite = this.state.addedToFavourite;
+
+    let color = this.state.color;
+
+    if (!(addedToFavourite.hasOwnProperty(script_id))) {
+      addedToFavourite[script_id] = true;
+      color = "yellow";
+    }
+    else {
+      addedToFavourite[script_id] = (addedToFavourite[script_id] ? false : true); // Toggle between add to favourite script and remove.
+      color = (color === "white" ? "yellow" : "white");
+    }
+
+    this.setState({ addedToFavourite });
+    this.setState({ color });
+
+  }
+
+  handleFilterChange(filter_type, label_name) {
+
+    const checkedLabels = this.state.checkedLabels;
+
+    let showFavouriteIsChecked = this.state.showFavouriteIsChecked;
+
+    switch (filter_type) {
+      case 0:
+        checkedLabels[label_name] = (checkedLabels[label_name] ? false : true);
+        this.setState({ checkedLabels });
+        break;
+
+      case 1:
+        this.state.labels.map(label => checkedLabels[label] = true);
+        this.setState({ checkedLabels });
+        break;
+
+      case 2:
+        this.state.labels.map(label => checkedLabels[label] = false);
+        this.setState({ checkedLabels });
+        break;
+
+      case 3:
+        showFavouriteIsChecked = (showFavouriteIsChecked ? false : true);
+        this.setState({ showFavouriteIsChecked });
+        break;
+
+      case 4:
+        this.state.labels.map(label => checkedLabels[label] = false);
+        showFavouriteIsChecked = false;
+        this.setState({ showFavouriteIsChecked }, () => console.log("Is fav check removed" + JSON.stringify(showFavouriteIsChecked)));
+        this.setState({ checkedLabels });
+        break;
+
+      default:
+        break;
+
+    }
+
+  }
+
+  handleApplyChanges() {
+
+    // Take all the ids which are favourite first and create another filtered data
+
+    let filteredData = [];
+
+    const checkedLabels = this.state.checkedLabels;
+
+    const addedToFavourite = this.state.addedToFavourite;
+
+
+    if (this.state.showFavouriteIsChecked) {
+
+      filteredData = this.state.data.filter(script => addedToFavourite[script.id] === true);
+
+    }
+
+    else {
+
+      filteredData = this.state.data.filter(script =>
+        script.meta.labels.some(label => checkedLabels[label] === true));
+
+      if (filteredData.length !== 0) {
+        this.handleSelectedScriptIdChange(filteredData[0].id);
+      }
+
+    }
+
+    this.setState({ filteredData });
+
+  }
+
+
+
   render() {
     return (
-      <div>
-        <div style={{ "float": "left" }} className="search-box">
+      <div className="container">
+
+        <div className="container-leftpanel">
+
           <Header />
-          <Search handleSearchChange={this.handleSearchChange} keyword={this.state.keyword} />
-          <Filter handleFilterChange={this.handleFilterChange} />
-          <ScriptListView data={this.state.filteredData} />
+
+          <div className="container-search">
+            <Search handleSearchChange={this.handleSearchChange}
+              keyword={this.state.keyword} />
+            <Filter handleFilterChange={this.handleFilterChange}
+              labels={this.state.labels}
+              showFavouriteIsChecked={this.state.showFavouriteIsChecked}
+              handleApplyChanges={this.handleApplyChanges}
+              checkedLabels={this.state.checkedLabels} />
+          </div>
+
+          <ScriptListView data={this.state.filteredData}
+            color={this.state.color}
+            handleSelectedScriptIdChange={this.handleSelectedScriptIdChange} />
+
         </div>
-        <div style={{ "float": "left" }} className="display-box">
-          <ScriptFullView selectedScriptId={this.state.selectedScriptId} />
+
+        <div className="container-fullView">
+
+          <ScriptFullView selectedScriptId={this.state.selectedScriptId}
+            data={this.state.filteredData}
+            color={this.state.color}
+            handleAddToFavourite={this.handleAddToFavourite} />
+
         </div>
-      </div>
+
+      </div >
     );
   }
 

@@ -4,7 +4,8 @@ import '../App.css';
 const Header = () => {
     return (
         <div className="header">
-            <p>Scripts Finder</p>
+            <i className="material-icons header-icon">list_alt</i>
+            <p className="header-name">Scripts Finder</p>
         </div>
     );
 };

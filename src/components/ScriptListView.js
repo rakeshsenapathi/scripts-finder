@@ -1,32 +1,36 @@
 import React, { Component } from 'react';
-import '../App.css';
 
 class ScriptListView extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedIndex: 0,
-            data: []
-        }
-    }
-
     render() {
+
+        const DisplayLabels = (props) => (
+            <div className="container-label">
+                {props.labels.map((label, key) => {
+                    return (
+                        <p key={key}>
+                            {label}
+                        </p>
+                    )
+                })}
+            </div>
+        )
 
         const ShowScripts = () => (
             this.props.data.map(script => {
                 return (
-                    <div key={script.id} onClick={() => console.log("Selected" + script.id)}>
+                    <div key={script.id}
+                        onClick={() => this.props.handleSelectedScriptIdChange(script.id)}
+                        className="container-listView">
                         <p>{script.name}</p>
+                        <DisplayLabels labels={script.meta.labels} />
                     </div>
                 )
             })
         );
 
         return (
-            <div className="script-view">
-                <ShowScripts />
-            </div>
+            <ShowScripts />
         );
     }
 }

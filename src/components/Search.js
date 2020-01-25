@@ -1,13 +1,13 @@
 import React from 'react';
+import '../App.css';
 
 const Search = (props) => {
     return (
-        <div>
-            <input type="text"
-                placeholder="Search"
-                onChange={props.handleSearchChange}
-                value={props.keyword} />
-        </div>
+        <input type="text"
+            className="input-search"
+            placeholder="Search"
+            onChange={props.handleSearchChange}
+            value={props.keyword} />
     )
 }
 

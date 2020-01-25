@@ -2,36 +2,214 @@
   text-align: center;
 }
 
+
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
 .header{
-  background-color: blue;
-  padding: 1rem;
+  background : #263238;
+  display: flex;
+  padding: 0.6rem;
 }
 
-.search-box{
-
-  width: 20%;
-
+.header-icon{
+  margin-right: 5px;
 }
 
-.display-box{
-
-  padding : 2rem;
-
+.container-leftpanel{
+  width: 30%;
 }
 
-.script-view{
+.container-search{
+  display: flex;
+  padding: 5px;
+  width: 100%;
+  background-color: #546E7A;
+}
 
-  background-color: cadetblue;
+.input-search{
+  padding: 0.5rem;
+  margin: 5px 2px;
+  background: rgb(248, 255, 255);
+  opacity: 60%;
+  border : 0px solid;
+  border-radius: 5px; 
+  outline: none;
+  width: 100%;
+}
+
+
+
+/* CODE TOGGLE */
+
+.filter{
+  display: inline-block;
+  margin-left : 5px;
+}
+
+.filter-button{
+  font-size: xx-large;
+  color: rgb(248, 255, 255);
+}
+
+.filter-menu{
+  display: none;
+  color: black;
+  padding: 10px;
+  position: absolute;
+  border : 2px solid #90A4AE;
+  background-color: #ECEFF1;
+  min-width: 158px;
+  z-index: 1;
+}
+
+.filter-menu p{
+  font-size: 14px;
+}
+
+.filter-menu ul{
+  list-style-type: none;
+  background-color: white;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px 0px;
+}
+
+.filter-menu hr{
+  border: 0.5px solid gray;
+  margin: 5px 0px;
+}
+
+.filter:hover .filter-menu{
+  display: block;
+}
+
+.container-select__all{
+  margin-left: 4px;
+  margin-right: 4px;
+  color: white;
+  background-color: rgb(102, 102, 224);
+  border: 1px solid;
+  padding: 2px 10px;
+}
+
+.container-select__none{
+  margin-left: 4px;
+  color: white;
+  background-color: rgb(102, 102, 224);
+  border: 1px solid;
+  padding: 2px 10px;
+}
+
+.btn-apply{
+  margin-top: 5px;
+  display: block;
+  padding: 10px;
+  color: white;
+  background-color: rgb(102, 102, 224);
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-reset{
+  display: block;
+  padding: 10px;
+  background-color: transparent;
+  border : none;
+  text-decoration: none;
+  color : rgb(102, 102, 224);
+}
+
+.container-listView{
+
+  display: block;
+  padding: 5px;
+  background-color: #455A64;
   padding: 1 rem;
   width: 100%;
 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container-listView:hover{
+  opacity: 90%;
+}
+
+.container-listView p{
+  font-size: 16px;
+  margin: 2px 2px;
+}
+
+
+.container-label{
+  display: flex;
+}
+
+.container-label p{
+  background-color: #64B5F6;
+  font-size: 13px;
+  padding: 2px 4px;
+  margin : 2px 4px;
+  color: black;
+  border-radius: 2px;
+}
+
+
+.container-fullView{
+  padding: 20px;
+  width: 100%;
+  background-color: #ECEFF1;
+  display: flex;
+  color: black;
+}
+
+.container-markFav{
+  display: flex;
+}
+
+.container-markFav i{
+  margin-right: 4px;
+  color: white;
+}
+
+.container-markFav i:hover{
+  color: #FDD835;
+}
+
+.content-name{
+  font-size: 28px;
+  
+}
+
+.content-desc{
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.content-desc hr{
+  margin : 20px 0px;
+  border : 1 solid;
+  width: 100%;
+}
+
+table, td, th {  
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  background-color: white;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
+
+.content-li{
+  margin-left: 20px;
 }
