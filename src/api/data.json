@@ -1,0 +1,62 @@
+{
+    "scripts": [
+        {
+            "id": 1,
+            "name": "Script to view recently updated tickets",
+            "meta": {
+                "labels": [
+                    "label1, label2"
+                ],
+                "owner": "Owner1",
+                "last_updated": "10-2-2019",
+                "creator": "Creator1",
+                "link": "https://google.com"
+            },
+            "usage": "urna_leo_convallis.py[<tag>][...args..]",
+            "sample_invocation": [
+                "Lorium Ipsum",
+                "Lorium Ipsum"
+            ],
+            "description": "Lorium Ipsum",
+            "commands": [
+                {
+                    "command_main": "--urna <urna>",
+                    "command_description": "Urna Feugiat"
+                },
+                {
+                    "command_main": "--morbi <morbi>",
+                    "command_description": "Ullam Corper set ugim"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Script to update daily status",
+            "meta": {
+                "labels": [
+                    "label3"
+                ],
+                "owner": "Owner2",
+                "last_updated": "10-2-2019",
+                "creator": "Creator2",
+                "link": "https://facebook.com"
+            },
+            "usage": "urna_leo_convallis.py[<tag>][...args..]",
+            "sample_invocation": [
+                "Lorium Ipsum",
+                "Lorium Ipsum"
+            ],
+            "description": "Lorium Ipsum",
+            "commands": [
+                {
+                    "command_main": "--urna <urna>",
+                    "command_description": "Urna Feugiat"
+                },
+                {
+                    "command_main": "--morbi <morbi>",
+                    "command_description": "Ullam Corper set ugim"
+                }
+            ]
+        }
+    ]
+}
