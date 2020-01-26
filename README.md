@@ -21,10 +21,9 @@ Web Application built on React.
 
 ### Installation
 
-    ```
         npm install
         npm start
-    ```
+   
 
 License
 ----
