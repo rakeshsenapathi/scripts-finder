@@ -6,7 +6,7 @@ Web Application built on React.
   - No other external libraries used
   - Styling using CSS.
  
-![alt text](https://user-images.githubusercontent.com/14851449/73131200-c8cf7800-402c-11ea-87ac-35b236402b8b.png);
+![alt text](https://user-images.githubusercontent.com/14851449/73131200-c8cf7800-402c-11ea-87ac-35b236402b8b.png)
 
 # Assumptions
 
@@ -18,6 +18,13 @@ Web Application built on React.
 
  - Theming : Implementation using Context API.
  - Push Notifications when labels are being tagged on seperate windows.
+
+### Installation
+
+    ```bash
+        npm install
+        npm start
+    ```
 
 License
 ----
