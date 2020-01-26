@@ -20,7 +20,7 @@
 }
 
 .container-leftpanel{
-  width: 30%;
+  width: 35%;
 }
 
 .container-search{
@@ -105,8 +105,8 @@
 }
 
 .btn-apply{
-  margin-top: 5px;
   display: block;
+  margin: 5px auto;
   padding: 10px;
   color: white;
   background-color: rgb(102, 102, 224);
@@ -116,6 +116,7 @@
 
 .btn-reset{
   display: block;
+  margin: auto;
   padding: 10px;
   background-color: transparent;
   border : none;
@@ -125,7 +126,7 @@
 
 .container-listView{
 
-  display: block;
+  display: flex;
   padding: 5px;
   background-color: #455A64;
   padding: 1 rem;
@@ -142,6 +143,20 @@
   margin: 2px 2px;
 }
 
+.listView-leftpanel{
+  display: flex;
+  flex-direction: column;
+}
+
+.listView-rightpanel{
+  padding: 5px;
+  margin-left: auto;
+}
+
+.favourite-icon{
+  color: yellow;
+  font-size: 17px;
+}
 
 .container-label{
   display: flex;
@@ -164,6 +179,7 @@
   display: flex;
   color: black;
 }
+
 
 .container-markFav{
   display: flex;

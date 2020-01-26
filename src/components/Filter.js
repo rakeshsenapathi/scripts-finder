@@ -39,8 +39,12 @@ const Filter = (props) => {
                     checked={props.showFavouriteIsChecked}
                     onChange={() => props.handleFilterChange(3)} />
                 <label htmlFor="showFavourites">Show only my favourites</label>
-                <button onClick={props.handleApplyChanges} className="btn-apply">APPLY</button>
-                <button onClick={() => props.handleFilterChange(4)} className="btn-reset">RESET ALL FILTERS</button>
+                <button
+                    onClick={props.handleApplyChanges}
+                    className="btn-apply">APPLY</button>
+                <button
+                    onClick={() => props.handleFilterChange(4)}
+                    className="btn-reset">RESET ALL FILTERS</button>
             </div>
         </div>
     );

@@ -18,9 +18,9 @@ class App extends Component {
       checkedLabels: {},
       addedToFavourite: {},
       showFavouriteIsChecked: false,
-      selectedScriptId: '',
+      selectedScriptId: '', // Know the active selectedId to view the fullScript
       keyword: "",
-      color: "white",
+      color: "white", // For mark as favourite
       data: [],
       filteredData: []
     };
@@ -42,6 +42,7 @@ class App extends Component {
       this.setState({ selectedScriptId: this.state.data[0].id });
     });
 
+    // Setting the state for labels and setting checkedLabels key-value pair 
     api.get_labels((_labels) => {
       this.setState({ labels: _labels });
       let checkedLabels = {};
@@ -76,6 +77,7 @@ class App extends Component {
 
     let color = this.state.color;
 
+    // Looking for a new property in the addedToFavourite object
     if (!(addedToFavourite.hasOwnProperty(script_id))) {
       addedToFavourite[script_id] = true;
       color = "yellow";
@@ -174,17 +176,21 @@ class App extends Component {
           <Header />
 
           <div className="container-search">
+
             <Search handleSearchChange={this.handleSearchChange}
               keyword={this.state.keyword} />
+
             <Filter handleFilterChange={this.handleFilterChange}
               labels={this.state.labels}
               showFavouriteIsChecked={this.state.showFavouriteIsChecked}
               handleApplyChanges={this.handleApplyChanges}
               checkedLabels={this.state.checkedLabels} />
+
           </div>
 
           <ScriptListView data={this.state.filteredData}
             color={this.state.color}
+            favourites={this.state.addedToFavourite}
             handleSelectedScriptIdChange={this.handleSelectedScriptIdChange} />
 
         </div>

@@ -61,10 +61,12 @@
         },
         {
             "id": 3,
-            "name": "Script to update daily status",
+            "name": "Script to know if the patient is on Protocol",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label5",
+                    "label1",
+                    "label2"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -90,10 +92,12 @@
         },
         {
             "id": 4,
-            "name": "Script to update daily status",
+            "name": "Script to toggle AD credentials",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label6",
+                    "label2",
+                    "label8"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -119,10 +123,11 @@
         },
         {
             "id": 5,
-            "name": "Script to update daily status",
+            "name": "Script to move patient from DFR to NDFR",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label7",
+                    "label1"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -148,10 +153,11 @@
         },
         {
             "id": 6,
-            "name": "Script to update daily status",
+            "name": "Script to do water check in clinic",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label3",
+                    "label6"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -177,10 +183,11 @@
         },
         {
             "id": 7,
-            "name": "Script to update daily status",
+            "name": "Get Patient Vitals",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label7",
+                    "label2"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -206,10 +213,11 @@
         },
         {
             "id": 8,
-            "name": "Script to update daily status",
+            "name": "Script to generate mock patient data",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label3",
+                    "label2"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -235,7 +243,7 @@
         },
         {
             "id": 9,
-            "name": "Script to update daily status",
+            "name": "Script to remove one time lab orders",
             "meta": {
                 "labels": [
                     "label4"
@@ -264,10 +272,10 @@
         },
         {
             "id": 10,
-            "name": "Script to update daily status",
+            "name": "Script to get ChairSide details",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label8"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -293,10 +301,11 @@
         },
         {
             "id": 11,
-            "name": "Script to update daily status",
+            "name": "Script to make Protocol Active",
             "meta": {
                 "labels": [
-                    "label4"
+                    "label6",
+                    "label8"
                 ],
                 "owner": "Owner2",
                 "last_updated": "10-2-2019",
@@ -325,6 +334,10 @@
         "label1",
         "label2",
         "label3",
-        "label4"
+        "label4",
+        "label5",
+        "label6",
+        "label7",
+        "label8"
     ]
 }

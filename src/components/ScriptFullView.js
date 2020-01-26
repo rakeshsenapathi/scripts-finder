@@ -2,6 +2,7 @@ import React from 'react';
 
 const ScriptFullView = (props) => {
 
+    // Fallback UI
     if (props.data.length === 0 || props.selectedScriptId === '') {
         return <div></div>;
     }
