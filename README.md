@@ -21,7 +21,7 @@ Web Application built on React.
 
 ### Installation
 
-    ```bash
+    ```
         npm install
         npm start
     ```
